@@ -4,8 +4,8 @@ int main()
 {
 	double a, b, c;
 	cout << "vvedite storony kyrpicha: ";
-	cin >> a, b, c;
-	double x, y;
+	cin >> a>> b>> c;
+	double x>> y;
 	cout << "vvedite storony otverstiya: ";
 	cin >> x, y;
 	if (a*b < x*y)

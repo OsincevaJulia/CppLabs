@@ -4,10 +4,10 @@ int main()
 {
 	double a, b, c;
 	cout << "vvedite storony kyrpicha: ";
-	cin >> a, b, c;
+	cin >> a>> b>> c;
 	double x, y;
 	cout << "vvedite storony otverstiya: ";
-	cin >> x, y;
+	cin >> x>> y;
 	if (a*b < x*y)
 		cout << "Kyrpich proidyot v otverstie.";
 	else

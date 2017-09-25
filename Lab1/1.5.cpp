@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int main()
+int main()//Даны действительное число a и натуральное число n. Вычислить a(a+1)…(a+n-1).
 {
 	int a, n;
 	cout << "a, n: ";

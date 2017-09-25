@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-int main()
+int main()//	Даны x, y, z. Вычислить a, b
 {
 	cout << "x, y, z: ";
 	int x, y, z;

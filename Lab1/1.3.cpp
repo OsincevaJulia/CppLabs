@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 int main()//Дано натуральное число. Приписать к нему такое же число слева
 {

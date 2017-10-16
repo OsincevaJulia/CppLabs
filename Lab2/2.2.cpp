@@ -12,15 +12,16 @@ int main()
 	int *a = new int[n];
 	for ( i = 0; i<n; i++) 
 		a[i] = rand();
-	cout << a[i];
+	for (i = 0; i < n; i++)
+		cout << a[i] << " ";
 	if (a [0]>= 0)
 	{
 		int min;
 		min = a[0];
 		for (i = 0; i < n; i++)
 		{
-			if (a[i + 1]<min )
-				min = a[i + 1];
+			if (a[i]<min )
+				min = a[i];
 		}
 		min = min*min;
 		for (i = 0; i < n; i++)
@@ -32,14 +33,15 @@ int main()
 		max = a[0];
 		for (i = 0; i < n; i++)
 		{
-			if (a[i + 1]>max)
-				max = a[i + 1];
+			if (a[i]>max)
+				max = a[i];
 		}
 		max = max*max;
 		for (i = 0; i < n; i++)
 			a[i] = a[i]*max;
 	}
-	cout << a[i];
+	for (i=0; i<n; i++)
+	cout << a[i]<<" ";
 	delete[]a;
 	return 0;
 }

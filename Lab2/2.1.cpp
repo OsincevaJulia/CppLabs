@@ -17,8 +17,8 @@ int main()
 	for (int i = 0; i < n; i++)
 	{
 		if (a[i] < 0)
-			x[i] = a[i] * a[i]
-		else x[i] = a[i]
+			x[i] = a[i] * a[i];
+		else x[i] = a[i];
 	}
 	  int c = 1;
 	  int s = 0;
@@ -38,7 +38,7 @@ int main()
 	  }
 		  else
 		  {
-			  for (i = 0; i < n; i++);
+			  for (int i = 0; i < n; i++);
 			  p = p*a[i];
 			  cout << p;
 		  }

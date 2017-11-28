@@ -4,44 +4,58 @@
 Полученный список занести в текстовый файл OUTPUT.TXT.*/
 #include <iostream>
 #include <fstream>
-#include<cstring>
 using namespace std;
 int main()
 {
 	ifstream in("INPUT.TXT");
 	ofstream out("OUTPUT.TXT");
-	while (in.eof())
+	if (!in)
 	{
-		int n;
-		cout << "Введите размер массива: ";
-			cin >> n;
-			char *A = new char[255];
-			in.getline(A, 255);
-			int *B = new int[255];
-			int a, x;
-			cout << "Введите число, после которого нужно поставить элемент: ";
-			cin >> a;
-			cout << "Введите элемент: ";
-			cin >> x;
-			char*tmp = A;
-			for (int i = 0; i < n; i++)
-			{
-				tmp = strchr(tmp, ' ') + 1;
-				int t = atoi(tmp);
-				for (int j = 0; j < n; j++)
-				{
-					if (t == a)
-					{
-						B[j + 2] = B[j + 1];
-						B[j + 1] = x;
-					}
-					else
-						B[j] = t;
-				}
-			}
-			delete[]A;
-			delete[]B;
+		cout << "Файл не найден";
+		system("pause");
+		return 0;
 	}
+	if (!out)
+	{
+		cout << "Файл не найден";
+		system("pause");
+		return 0;
+	}
+	int m = 0;
+	int* A = new int[255];
+    for (int i = 0; !in.eof(); i++)
+	{
+		in >> A[i];
+		m = m + 1;;
+	}
+	int a = 0;
+	int x = 0;
+	int n = 0;
+
+	cout << "Введите элемент после которого нужно ввести новое число: ";
+	cin >> a;
+
+	cout << "Введите новый элемент: ";
+	cin >> x;
+	int* B = new int[255];
+	for (int i = 0, j = 0; i < m; i++, j++)
+	{
+		if (A[i] == a)
+		{
+			B[j] = A[i];
+			B[j+1] = x;
+			n = j+1;
+			continue;
+		}
+		B[j] = A[i];
+		n = j;
+	}
+	for (int j = 0; j < n; j++)
+	{
+		out << B[j]<<" ";
+	}
+	delete[]A;
+	delete[]B;
 	in.close();
 	out.close();
 	return 0;

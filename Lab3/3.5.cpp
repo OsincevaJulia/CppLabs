@@ -51,7 +51,7 @@ int main()
 		B[j] = A[i];
 		n = j;
 	}
-	for (int j = 0; j < n; j++)
+	for (int j = 0; j <= n; j++)
 	{
 		out << B[j]<<" ";
 	}

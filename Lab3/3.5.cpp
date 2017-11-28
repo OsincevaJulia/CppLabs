@@ -43,8 +43,9 @@ int main()
 		if (A[i] == a)
 		{
 			B[j] = A[i];
-			B[j+1] = x;
-			n = j+1;
+			j++;
+			B[j] = x;
+			n = j;
 			continue;
 		}
 		B[j] = A[i];

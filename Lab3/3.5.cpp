@@ -4,6 +4,7 @@
 Полученный список занести в текстовый файл OUTPUT.TXT.*/
 #include <iostream>
 #include <fstream>
+#include<cstring>
 using namespace std;
 int main()
 {
@@ -16,25 +17,16 @@ int main()
 			cin >> n;
 			char *A = new char[255];
 			in.getline(A, 255);
-			atoi(A);
-			cout << "Введите массив: ";
-			for (int i = 0; i < n; i++)
-				cin >> A[i];
-			char *B = new char[255];
-			in.getline(B, 255);
-			atoi(B);
-			for (int j = 0; j < n; j++)
-				cin >> B[j];
+			int *B = new int[255];
 			int a, x;
 			cout << "Введите число, после которого нужно поставить элемент: ";
 			cin >> a;
 			cout << "Введите элемент: ";
 			cin >> x;
+			char*tmp = A;
 			for (int i = 0; i < n; i++)
 			{
-				char*tmp = A;
-				int index find(tmp ' ');
-				tmp = tmp + A[i]+ 1;
+				tmp = strchr(tmp, ' ') + 1;
 				int t = atoi(tmp);
 				for (int j = 0; j < n; j++)
 				{

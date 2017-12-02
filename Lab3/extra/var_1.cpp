@@ -21,7 +21,7 @@ int main()
 		system("pause");
 		return 0;
 	}
-	int* A = new int[255];
+	char* A = new char[255];
 	for (int i = 0; !in.eof(); i++)
 	{
 		in >> A[i];

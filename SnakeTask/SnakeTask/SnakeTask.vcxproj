@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{143EB95B-C86B-4F12-B51E-C1BC2885C0EA}</ProjectGuid>
+    <ProjectGuid>{574814E4-C23A-43B8-A285-402CFC2989DE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>SnakeTask</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>

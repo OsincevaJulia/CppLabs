@@ -41,14 +41,17 @@ public:
 
 	Vector operator +(const Vector &other)
 	{
-		Vector temp;
-		temp.corner = 360-this->corner + other.corner;
-		if (temp.corner > 180)
+		Vector* temp= new Vector;
+		temp->corner = 360-this->corner + other.corner;
+		if (temp->corner > 180)
 		{
-			temp.corner = 360 - temp.corner;
+			temp->corner = 360 - temp->corner;
 		};
-		temp.leght = sqrt((this->leght*this->leght) + (other.leght*other.leght) + (2 * this->leght*other.leght*temp.corner));
-		return temp;
+		temp->leght = sqrt(
+			(this->leght*this->leght) + (other.leght*other.leght) +
+			(2 * this->leght * other.leght * cos(temp->corner))
+		);
+		return *temp;
 	}
 	
 	Vector operator -(const Vector &other)
@@ -65,7 +68,10 @@ public:
 		{
 			temp.corner = 360 - temp.corner;
 		};
-		temp.leght = sqrt((this->leght*this->leght) + (other.leght*other.leght) + (2 * this->leght*other.leght*temp.corner));
+		temp.leght = sqrt(
+			(this->leght*this->leght) + (other.leght*other.leght) + 
+			(2 * this->leght * other.leght * cos(temp.corner))
+		);
 		return temp;
 	}
 
@@ -77,11 +83,11 @@ public:
 		{
 			temp.corner = 360 - temp.corner;
 		};
-		temp.leght = this->leght*other.leght*temp.corner;
+		temp.leght = this->leght * other.leght*cos(temp.corner);
 		return temp;
 	}
 
-	friend ostream &operator<<(ostream &out, Vector &p) // перегрузка вывода (!)
+	friend ostream& operator<<(ostream &out, Vector &p) // перегрузка вывода (!)
 	{
 		out  << p.leght  << p.corner <<  endl;
 		return out;
@@ -95,6 +101,8 @@ public:
 
 };
 
+
+
 int main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -104,6 +112,8 @@ int main()
 	cout << "2.Вычитание векторов." << endl;
 	cout << "3.Вычисление скалярного произведения векторов." << endl;
 	cin >> n;
+
+	
 
 		switch (n)
 		{
@@ -124,7 +134,7 @@ int main()
 			cin >> Number1;
 			cout << "Введите номер второго вектора: ";
 			cin >> Number2;
-			Vector Sum = Add[Number1] + Add[Number2];
+			Vector Sum = Add[Number1-1] + Add[Number2-1];
 			cout << "Сумма векторов равна: " << Sum;
 			break;
 		};
@@ -136,7 +146,7 @@ int main()
 			Vector *Add = new Vector[n];
 			for (int i = 0; i < n; i++)
 			{
-				cout << "Введите длину и угол(от 0 до 360) " << i + 1 << " вектора: ";
+				cout << "Введите длину и угол(от 0 до 360) " << i+1  << " вектора: ";
 				cin >> Add[i];
 			};
 			cout << "Введите номер первого вектора: ";
@@ -144,7 +154,7 @@ int main()
 			cin >> Number1;
 			cout << "Введите номер второго вектора: ";
 			cin >> Number2;
-			Vector Dif = Add[Number1] - Add[Number2];
+			Vector Dif = Add[Number1-1] - Add[Number2-1];
 			cout << "Разность векторов равна: " << Dif;
 			break;
 		};
@@ -164,7 +174,7 @@ int main()
 			cin >> Number1;
 			cout << "Введите номер второго вектора: ";
 			cin >> Number2;
-			Vector Mul = Add[Number1] * Add[Number2];
+			Vector Mul = Add[Number1-1] * Add[Number2-1];
 			cout << "Скалярное произведение векторов равно: " << Mul;
 			break;
 		};

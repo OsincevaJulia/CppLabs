@@ -60,7 +60,7 @@ public:
 		else
 			corner2 = corner2 - 180;
 
-		temp.corner = 360 - this->corner + other.corner;
+		temp.corner = 360 - this->corner + corner2;
 		if (temp.corner > 180)
 		{
 			temp.corner = 360 - temp.corner;

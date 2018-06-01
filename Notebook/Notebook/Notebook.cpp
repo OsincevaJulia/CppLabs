@@ -13,7 +13,7 @@ class Person
 	char* phone;
 public:
 	Person* next;
-	Person* prev;
+	Person* prev;//Предыдущий элемент
 	Person()
 	{
 		FIO = nullptr;
@@ -46,6 +46,12 @@ public:
 		this->FIO = FIO;
 		this->date = date;
 		this->phone = phone;
+	};
+	~Person()
+	{
+		delete FIO;
+		delete date;
+		delete phone;
 	};
 };
 
@@ -97,7 +103,7 @@ private:
 	{
 		if (p->next == nullptr)
 			return;
-		if (strcmp(p->getFIO, p->next->getFIO) < 0)
+		if (strcmp(p->getFIO, p->next->getFIO) > 0)
 		{
 			Person a;
 			a = *p;
@@ -147,6 +153,7 @@ private:
 			SearchTo(p->next, FIO);
 		}
 	}
+	
 
 };
 
@@ -189,16 +196,20 @@ int main()
 		break;
 	};
 	case 3:
+	{
 		note.Sort();
-		break;
+	    break;
+	};
 	case 4:
+	{
 		char* FIO = new char[250];
 		cout << "Введите ФИО: ";
 		cin >> FIO;
 		note.Search(FIO);
 		break;
+	};
 	default:
-		cout << "Некорректный ввод." << endl;
+	    cout << "Некорректный ввод." << endl;
 	};
 	system("pause");
 	return 0;

@@ -4,6 +4,7 @@
 проверку всех методов.*/
 #include <iostream>
 #include <string>
+#pragma warning(disable:4996)
 using namespace std;
 
 class Person
@@ -103,7 +104,7 @@ private:
 	{
 		if (p->next == nullptr)
 			return;
-		if (strcmp(p->getFIO, p->next->getFIO) > 0)
+		if (strcmp(p->getFIO(), p->next->getFIO()) > 0)
 		{
 			Person a;
 			a = *p;
@@ -121,7 +122,7 @@ private:
 			cout << "Not Found";
 			return;
 		}
-		if (strcmp(p->getFIO, FIO) == 0)
+		if (strcmp(p->getFIO(), FIO) == 0)
 		{
 			p->prev->next = p->next;
 			p->next->prev = p->prev;
@@ -141,11 +142,11 @@ private:
 			cout << "Not Found";
 			return;
 		}
-		if (strcmp(p->getFIO, FIO) == 0)
+		if (strcmp(p->getFIO(), FIO) == 0)
 		{
-			cout << p->getFIO << endl;
-			cout << p->getdate << endl;
-			cout << p->getphone << endl;
+			cout << p->getFIO() << endl;
+			cout << p->getdate()<< endl;
+			cout << p->getphone() << endl;
 			return;
 		}
 		else
